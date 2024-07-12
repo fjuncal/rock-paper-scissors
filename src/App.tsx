@@ -9,7 +9,7 @@ function App() {
         <div className="">
           <Header />
         </div>
-        <div className="footer mb-8">
+        <div className="fixed left-0 bottom-0 w-full mb-8 text-center">
           <Footer />
         </div>
       </div>
