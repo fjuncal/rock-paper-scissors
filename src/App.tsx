@@ -2,6 +2,10 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import logo from "./assets/teste.png";
+import scissors from "./assets/scissors.png";
+import paper from "./assets/paper.png";
+import rock from "./assets/rock.png";
+
 function App() {
   return (
     <>
