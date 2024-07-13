@@ -15,6 +15,9 @@ export default function Game() {
 
   const [scoreState, setScoreState] = useState<number>(score);
   const [playerWin, setPlayerWin] = useState<boolean>(false);
+  const [player2Selected, setPlayer2Selected] = useState<string | undefined>(
+    sortearPlayer2Option()
+  );
 
   function sortearPlayer2Option() {
     const player2Options = ["pedra", "papel", "tesoura"];
@@ -91,15 +94,15 @@ export default function Game() {
           </div>
           <div className="">
             <p className=" mb-8 text-gray-800 dark:text-gray-100 text-xl font-semibold mt-8">
-              Você Selecionou:
+              Robô Selecionou:
             </p>
             <img
-              src={renderizarTipoDeFotoSelecionada(tipoSelecionado)}
+              src={renderizarTipoDeFotoSelecionada(player2Selected!)}
               alt="logo"
               className="h-40 hover:cursor-pointer"
             />
             <p className=" ml-12 text-gray-800 dark:text-gray-100 text-lg font-black ">
-              {tipoSelecionado}
+              {player2Selected}
             </p>
           </div>
         </div>
