@@ -24,18 +24,36 @@ export default function Modal() {
                     onClick={() => setShowModal(false)}
                   >
                     <span className=" text-red-500 h-6 w-6 text-2xl block focus:outline-none">
-                      ×
+                      x
                     </span>
                   </button>
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
+                    Os jogadores devem simultaneamente esticar a mão, na qual
+                    cada um formou um símbolo (que significa pedra, papel ou
+                    tesoura). Então, os jogadores comparam os símbolos para
+                    decidir quem ganhou, da seguinte forma:
+                  </p>
+                  <ul className="list-disc list-inside my-4 text-blueGray-500 text-lg leading-relaxed">
+                    <li>
+                      Pedra ganha da tesoura (amassando-a ou quebrando-a).
+                    </li>
+                    <li>Tesoura ganha do papel (cortando-o).</li>
+                    <li>Papel ganha da pedra (embrulhando-a).</li>
+                  </ul>
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    A pedra é simbolizada por um punho fechado; a tesoura, por
+                    dois dedos esticados; e o papel, pela mão aberta. Caso dois
+                    jogadores façam o mesmo gesto, ocorre um empate, e
+                    geralmente se joga de novo até desempatar
+                  </p>
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    Este jogo possui uma única regra:
+                  </p>
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed font-bold">
+                    não é permitido mostrar pedra duas vezes seguidas.
                   </p>
                 </div>
                 {/*footer*/}
