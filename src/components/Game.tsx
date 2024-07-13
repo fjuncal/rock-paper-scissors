@@ -9,14 +9,13 @@ export default function Game() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { nome } = location.state;
   const score = location.state[1].score;
   const tipoSelecionado = location.state[0].nome;
 
   const [scoreState, setScoreState] = useState<number>(score);
   const [playerWin, setPlayerWin] = useState<boolean>(false);
   const [drawGame, setDrawGame] = useState<boolean>(false);
-  const [player2Selected, setPlayer2Selected] = useState<string | undefined>(
+  const [player2Selected] = useState<string | undefined>(
     sortearPlayer2Option()
   );
 
@@ -102,7 +101,7 @@ export default function Game() {
         </div>
 
         <div className="container mx-auto w-3/5 h-1/4 flex flex-col xl:flex-row items-start xl:items-center justify-between px-5 xl:px-10 ">
-          <div className="mb-4 sm:mb-0 md:mb-0 lg:mb-0 xl:mb-0 lg:w-1/2">
+          <div className="mb-4 md:mb-0 lg:mb-0 xl:mb-0 lg:w-1/2 ">
             <p className=" mb-8 text-gray-800 dark:text-gray-100 text-xl font-semibold mt-8">
               Você Selecionou:
             </p>
@@ -131,7 +130,7 @@ export default function Game() {
           </div>
         </div>
 
-        <div className="fixed left-0 bottom-0 w-full mb-8 text-center bg">
+        <div className="fixed left-0 bottom-0 w-full mb-8 text-center sm:relative">
           <button
             onClick={() => navigate("/", { state: { scoreState } })}
             className="select-none rounded-lg bg-green-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
