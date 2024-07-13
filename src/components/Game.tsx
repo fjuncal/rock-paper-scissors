@@ -75,18 +75,33 @@ export default function Game() {
           Resultado:
         </p>
 
-        <div className="container mx-auto w-3/5 h-1/4 ">
-          <p className=" mb-8 text-gray-800 dark:text-gray-100 text-xl font-semibold mt-8">
-            Você Selecionou:
-          </p>
-          <img
-            src={renderizarTipoDeFotoSelecionada(tipoSelecionado)}
-            alt="logo"
-            className="h-40 hover:cursor-pointer"
-          />
-          <p className=" ml-12 text-gray-800 dark:text-gray-100 text-lg font-black ">
-            {tipoSelecionado}
-          </p>
+        <div className="container mx-auto w-3/5 h-1/4 flex flex-col xl:flex-row items-start xl:items-center justify-between px-5 xl:px-10 ">
+          <div className="mb-4 sm:mb-0 md:mb-0 lg:mb-0 xl:mb-0 lg:w-1/2">
+            <p className=" mb-8 text-gray-800 dark:text-gray-100 text-xl font-semibold mt-8">
+              Você Selecionou:
+            </p>
+            <img
+              src={renderizarTipoDeFotoSelecionada(tipoSelecionado)}
+              alt="logo"
+              className="h-40 hover:cursor-pointer"
+            />
+            <p className=" ml-12 text-gray-800 dark:text-gray-100 text-lg font-black ">
+              {tipoSelecionado}
+            </p>
+          </div>
+          <div className="">
+            <p className=" mb-8 text-gray-800 dark:text-gray-100 text-xl font-semibold mt-8">
+              Você Selecionou:
+            </p>
+            <img
+              src={renderizarTipoDeFotoSelecionada(tipoSelecionado)}
+              alt="logo"
+              className="h-40 hover:cursor-pointer"
+            />
+            <p className=" ml-12 text-gray-800 dark:text-gray-100 text-lg font-black ">
+              {tipoSelecionado}
+            </p>
+          </div>
         </div>
 
         <div className="fixed left-0 bottom-0 w-full mb-8 text-center bg">
