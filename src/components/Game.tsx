@@ -25,13 +25,13 @@ export default function Game() {
       <div className="fixed left-0 bottom-0 w-full mb-8 text-center">
         <button
           onClick={() => navigate("/", { state: { scoreState } })}
-          className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          className="select-none rounded-lg bg-green-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
           Jogar novamente
         </button>
         <button
           onClick={() => setScoreState(0)}
-          className="select-none rounded-lg ml-4 bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  text-white shadow-md shadow-gray-900/10 transition-all"
+          className="select-none rounded-lg ml-4 bg-red-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  text-white shadow-md shadow-gray-900/10 transition-all"
         >
           Zerar Pontuação
         </button>
