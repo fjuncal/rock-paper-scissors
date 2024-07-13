@@ -7,7 +7,6 @@ import Play from "./components/Play";
 function App() {
   const location = useLocation();
   const { scoreState } = location.state;
-  console.log("APP", scoreState);
 
   return (
     <>

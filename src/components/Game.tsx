@@ -11,7 +11,6 @@ export default function Game() {
   const tipoSelecionado = location.state[0].nome;
 
   const [scoreState, setScoreState] = useState<number>(score);
-  console.log("ENTREII", tipoSelecionado);
 
   return (
     <>
