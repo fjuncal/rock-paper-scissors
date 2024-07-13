@@ -1,6 +1,10 @@
 import logo from "../assets/logo.png";
 
-export default function Header() {
+interface HeaderProps {
+  score: number;
+}
+
+export default function Header(props: HeaderProps) {
   return (
     <>
       <div className="flex justify-center py-4 ">
@@ -27,7 +31,7 @@ export default function Header() {
               Score
             </p>
             <p className="ml-4 font-normal text-lg text-black dark:text-gray-100 mt-1">
-              10
+              {props.score}
             </p>
           </div>
         </div>
