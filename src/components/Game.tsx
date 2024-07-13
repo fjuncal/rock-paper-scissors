@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import pedra from "../assets/rock.png";
 import papel from "../assets/paper.png";
 import tesoura from "../assets/scissors.png";
@@ -15,6 +15,7 @@ export default function Game() {
 
   const [scoreState, setScoreState] = useState<number>(score);
   const [playerWin, setPlayerWin] = useState<boolean>(false);
+  const [drawGame, setDrawGame] = useState<boolean>(false);
   const [player2Selected, setPlayer2Selected] = useState<string | undefined>(
     sortearPlayer2Option()
   );
@@ -33,41 +34,60 @@ export default function Game() {
       return tesoura;
     }
   }
-
-  function verificarGanhador() {
-    const player2Selecioando = sortearPlayer2Option();
-    if (tipoSelecionado === "pedra" && player2Selecioando === "tesoura") {
-      setPlayerWin(true);
-      setScoreState((prev) => prev + 1);
-    } else if (tipoSelecionado === "pedra" && player2Selecioando === "papel") {
-      setPlayerWin(false);
-      setScoreState((prev) => prev - 1);
-    } else if (tipoSelecionado === "papel" && player2Selecioando === "pedra") {
-      setPlayerWin(true);
-      setScoreState((prev) => prev + 1);
-    } else if (
-      tipoSelecionado === "papel" &&
-      player2Selecioando === "tesoura"
-    ) {
-      setPlayerWin(false);
-      setScoreState((prev) => prev - 1);
-    } else if (
-      tipoSelecionado === "tesoura" &&
-      player2Selecioando === "papel"
-    ) {
-      setPlayerWin(true);
-      setScoreState((prev) => prev + 1);
-    } else if (
-      tipoSelecionado === "tesoura" &&
-      player2Selecioando === "pedra"
-    ) {
-      setPlayerWin(false);
-      setScoreState((prev) => prev - 1);
-    } else {
-      console.log("empatou");
+  function renderizarMensagemParaUsuario() {
+    if (playerWin && playerWin != undefined) {
+      return (
+        <p className="mb-8 text-green-600 dark:text-gray-100 text-5xl font-bold mt-8">
+          Voce Ganhou
+        </p>
+      );
+    } else if (!playerWin && playerWin != undefined) {
+      return (
+        <p className="mb-8 text-red-700 dark:text-gray-100 text-5xl font-bold mt-8">
+          Você Perdeu
+        </p>
+      );
+    } else if (drawGame) {
+      return (
+        <p className="mb-8 text-blue-700 dark:text-gray-100 text-5xl font-bold mt-8">
+          Empatou
+        </p>
+      );
     }
   }
-
+  function verificarGanhador() {
+    if (tipoSelecionado === "pedra" && player2Selected === "tesoura") {
+      setPlayerWin(true);
+      setDrawGame(false);
+      setScoreState(scoreState + 1);
+    } else if (tipoSelecionado === "pedra" && player2Selected === "papel") {
+      setPlayerWin(false);
+      setDrawGame(false);
+      setScoreState(scoreState - 1);
+    } else if (tipoSelecionado === "papel" && player2Selected === "pedra") {
+      setPlayerWin(true);
+      setDrawGame(false);
+      setScoreState(scoreState + 1);
+    } else if (tipoSelecionado === "papel" && player2Selected === "tesoura") {
+      setPlayerWin(false);
+      setDrawGame(false);
+      setScoreState(scoreState - 1);
+    } else if (tipoSelecionado === "tesoura" && player2Selected === "papel") {
+      setPlayerWin(true);
+      setDrawGame(false);
+      setScoreState(scoreState + 1);
+    } else if (tipoSelecionado === "tesoura" && player2Selected === "pedra") {
+      setPlayerWin(false);
+      setDrawGame(false);
+      setScoreState(scoreState - 1);
+    } else {
+      setDrawGame(true);
+      setPlayerWin(undefined!);
+    }
+  }
+  useEffect(() => {
+    verificarGanhador();
+  }, [player2Selected]);
   return (
     <>
       <div className="bg-red-400 h-screen w-screen">
@@ -77,6 +97,9 @@ export default function Game() {
         <p className=" text-center text-gray-800 dark:text-gray-100 text-3xl font-bold mt-8">
           Resultado:
         </p>
+        <div className="flex justify-center">
+          {renderizarMensagemParaUsuario()}
+        </div>
 
         <div className="container mx-auto w-3/5 h-1/4 flex flex-col xl:flex-row items-start xl:items-center justify-between px-5 xl:px-10 ">
           <div className="mb-4 sm:mb-0 md:mb-0 lg:mb-0 xl:mb-0 lg:w-1/2">
@@ -92,6 +115,7 @@ export default function Game() {
               {tipoSelecionado}
             </p>
           </div>
+
           <div className="">
             <p className=" mb-8 text-gray-800 dark:text-gray-100 text-xl font-semibold mt-8">
               Robô Selecionou:
