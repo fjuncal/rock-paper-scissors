@@ -30,10 +30,10 @@ export default function Game() {
           Jogar novamente
         </button>
         <button
-          onClick={() => setScoreState(scoreState + 1)}
-          className="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  text-white shadow-md shadow-gray-900/10 transition-all"
+          onClick={() => setScoreState(0)}
+          className="select-none rounded-lg ml-4 bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  text-white shadow-md shadow-gray-900/10 transition-all"
         >
-          somar
+          Zerar Pontuação
         </button>
       </div>
     </>
